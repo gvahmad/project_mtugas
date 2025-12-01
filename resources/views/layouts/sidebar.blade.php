@@ -1,11 +1,11 @@
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar" style="background: linear-gradient(180deg, #6a11cb 0%, #2575fc 100%) !important;">
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar" style="background: linear-gradient(180deg, #2f3437 0%, #6b7280 100%) !important;">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('dashboard') }}" style="background: rgba(0,0,0,0.2); border-bottom: 2px solid rgba(255,255,255,0.1);">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-cubes"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3" style="font-weight: 700; letter-spacing: 0.5px;">LAB PTI</div>
+                <div class="sidebar-brand-text mx-3" style="font-weight: 700; letter-spacing: 0.5px;">GUDANG LABS</div>
             </a>
 
             <!-- Divider -->

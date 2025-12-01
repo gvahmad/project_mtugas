@@ -14,30 +14,30 @@
     }
     
     .card-header-gradient {
-        background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-        color: white;
+        background: linear-gradient(135deg, #2f3437 0%, #6b7280 100%);
+        color: #f1f3f5;
         padding: 20px;
         border: none;
     }
     
     .card-total-barang {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        color: white;
+        background: linear-gradient(135deg, #3a3f44 0%, #6b7280 100%);
+        color: #f1f3f5;
     }
     
     .card-total-petugas {
-        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        color: white;
+        background: linear-gradient(135deg, #454b50 0%, #9aa0a6 100%);
+        color: #f1f3f5;
     }
     
     .card-barang-rusak {
-        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-        color: white;
+        background: linear-gradient(135deg, #e9ecef 0%, #f1f3f5 100%);
+        color: #2f3437;
     }
     
     .card-persentase {
-        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
-        color: white;
+        background: linear-gradient(135deg, #e9ecef 0%, #f5f7f9 100%);
+        color: #2f3437;
     }
     
     .stat-number {
@@ -58,7 +58,7 @@
     
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0" style="color: #6a11cb;">Dashboard Inventaris</h1>
+        <h1 class="h3 mb-0" style="color: #2f3437;">Dashboard Inventaris</h1>
     </div>
 
     <!-- Content Row -->

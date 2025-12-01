@@ -10,8 +10,8 @@
     }
     
     .table-modern thead {
-        background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-        color: white;
+        background: linear-gradient(135deg, #2f3437 0%, #6b7280 100%);
+        color: #f1f3f5;
     }
     
     .table-modern tbody tr {
@@ -23,7 +23,7 @@
     }
     
     .btn-custom-edit {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #3a3f44 0%, #6b7280 100%);
         color: white !important;
         border: none;
         padding: 5px 12px;
@@ -37,7 +37,7 @@
     }
     
     .btn-custom-delete {
-        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        background: linear-gradient(135deg, #454b50 0%, #9aa0a6 100%);
         color: white !important;
         border: none;
         padding: 5px 12px;
@@ -50,15 +50,14 @@
         box-shadow: 0 4px 10px rgba(245, 87, 108, 0.4);
     }
     
-    .page-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
         margin-bottom: 25px;
         padding: 20px;
-        background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+        background: linear-gradient(135deg, #2f3437 0%, #6b7280 100%);
         border-radius: 10px;
-        color: white;
+        color: #f1f3f5;
     }
     
     .page-header h2 {
@@ -68,7 +67,7 @@
     
     .btn-add {
         background: white;
-        color: #2575fc;
+        color: #6b7280;
         border: none;
         padding: 10px 20px;
         border-radius: 5px;
@@ -78,7 +77,7 @@
     .btn-add:hover {
         transform: translateY(-2px);
         box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        color: #2575fc;
+        color: #6b7280;
     }
 </style>
 
@@ -88,7 +87,7 @@
 </div>
 
 @if (session('success'))
-<div class="alert alert-success" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; border: none; border-radius: 10px; padding: 15px;">{{ session('success') }}</div>
+<div class="alert alert-success" style="background: linear-gradient(135deg, #e9ecef 0%, #f1f3f5 100%); color: #2f3437; border: none; border-radius: 10px; padding: 15px;">{{ session('success') }}</div>
 @endif
 
 <div class="card shadow-lg" style="border: none; border-radius: 15px;">

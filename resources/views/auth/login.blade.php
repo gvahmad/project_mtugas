@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Sistem Inventaris Lab PTI</title>
+    <title>Login - Sistem Inventaris</title>
     <!-- Bootstrap 5 CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Google Fonts -->
@@ -17,7 +17,7 @@
 
         body {
             font-family: 'Roboto', sans-serif;
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            background: linear-gradient(135deg, #2f3437 0%, #6b7280 100%);
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -108,15 +108,15 @@
 
         .form-control:focus {
             outline: none;
-            border-color: #2575fc;
+            border-color: #6b7280;
             background: white;
-            box-shadow: 0 0 0 4px rgba(37, 117, 252, 0.1);
+            box-shadow: 0 0 0 4px rgba(107,114,128,0.08);
         }
 
         .btn-login {
             width: 100%;
             padding: 14px;
-            background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+            background: linear-gradient(90deg, #2f3437 0%, #6b7280 100%);
             color: white;
             font-weight: 600;
             border: none;
@@ -130,7 +130,7 @@
         .btn-login:hover {
             opacity: 0.95;
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(37, 117, 252, 0.3);
+            box-shadow: 0 10px 30px rgba(58,63,68,0.25);
         }
 
         .btn-login:active {
@@ -146,8 +146,8 @@
         }
 
         .alert-danger {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
+            background: linear-gradient(135deg, #454b50 0%, #9aa0a6 100%);
+            color: #f1f3f5;
         }
 
         .login-footer {
@@ -158,7 +158,7 @@
         }
 
         .login-footer a {
-            color: #2575fc;
+            color: #6b7280;
             text-decoration: none;
             font-weight: 600;
         }
@@ -174,7 +174,7 @@
 
         .icon-wrapper i {
             font-size: 40px;
-            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            background: linear-gradient(135deg, #2f3437 0%, #6b7280 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;

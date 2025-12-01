@@ -13,8 +13,8 @@
     }
     
     .form-header {
-        background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-        color: white;
+        background: linear-gradient(135deg, #2f3437 0%, #6b7280 100%);
+        color: #f1f3f5;
         padding: 25px;
     }
     
@@ -30,8 +30,8 @@
     }
     
     .form-control:focus {
-        border-color: #2575fc;
-        box-shadow: 0 0 0 3px rgba(37, 117, 252, 0.1);
+        border-color: #6b7280;
+        box-shadow: 0 0 0 3px rgba(107,114,128,0.08);
     }
     
     .form-label {
@@ -41,7 +41,7 @@
     }
     
     .btn-save {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #3a3f44 0%, #6b7280 100%);
         color: white;
         border: none;
         padding: 12px 30px;
@@ -82,14 +82,14 @@
         height: 150px;
         border-radius: 50%;
         margin: 0 auto 15px;
-        border: 3px solid #6a11cb;
+        border: 3px solid #2f3437;
         object-fit: cover;
     }
     
     .upload-label {
         display: inline-block;
         padding: 10px 20px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #3a3f44 0%, #6b7280 100%);
         color: white;
         border-radius: 8px;
         cursor: pointer;
@@ -99,7 +99,7 @@
     
     .upload-label:hover {
         transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        box-shadow: 0 8px 20px rgba(58,63,68,0.28);
     }
     
     #profile_photo {
@@ -117,8 +117,20 @@
 
                 <div class="p-4">
                     @if (session('success'))
-                        <div class="alert alert-success" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; border: none; border-radius: 10px; padding: 15px;">
+                        <div class="alert alert-success" style="background: linear-gradient(135deg, #e9ecef 0%, #f1f3f5 100%); color: #2f3437; border: none; border-radius: 10px; padding: 15px;">
                             {{ session('success') }}
+                        </div>
+                    @endif
+
+                    {{-- Validation errors (show helpful messages when upload or validation fails) --}}
+                    @if ($errors->any())
+                        <div class="alert alert-danger" style="background:#fdecea;color:#8a1f1f;border-radius:10px;padding:12px;border:none;margin-bottom:16px;">
+                            <strong>Terjadi kesalahan:</strong>
+                            <ul style="margin:8px 0 0 18px; padding:0;">
+                                @foreach ($errors->all() as $error)
+                                    <li style="line-height:1.5;">{{ $error }}</li>
+                                @endforeach
+                            </ul>
                         </div>
                     @endif
 
@@ -128,7 +140,11 @@
 
                         <div class="photo-section">
                             <h5 style="margin-bottom: 15px; color: #333;">Foto Profil</h5>
-                            <img src="{{ asset('img/profile/' . (Auth::user()->profile_photo ?? 'default-profile.png')) }}" alt="Foto Profil" class="photo-preview">
+                            @php
+                                $profileFile = 'img/profile/' . (Auth::user()->profile_photo ?? 'default-profile.png');
+                                $profileSrc = file_exists(public_path($profileFile)) ? asset($profileFile) : asset('img/undraw_profile.svg');
+                            @endphp
+                            <img src="{{ $profileSrc }}" alt="Foto Profil" class="photo-preview">
                             <div>
                                 <input type="file" id="profile_photo" name="profile_photo" accept="image/*">
                                 <label for="profile_photo" class="upload-label">📷 Pilih Foto</label>
@@ -167,6 +183,23 @@
                 document.querySelector('.photo-preview').src = event.target.result;
             };
             reader.readAsDataURL(file);
+        }
+    });
+
+    // Client-side validation: file type/size feedback before submitting
+    document.querySelector('form[action="{{ route('profile.update') }}"]').addEventListener('submit', function(e) {
+        const input = document.getElementById('profile_photo');
+        const file = input.files[0];
+        if (file) {
+            const maxSize = 10 * 1024 * 1024; // 2MB
+            const allowed = ['image/jpeg', 'image/jpg', 'image/png'];
+            // If file too big or wrong type, prevent submit and show a brief alert
+            if (file.size > maxSize || !allowed.includes(file.type)) {
+                e.preventDefault();
+                let message = 'Foto harus JPG/PNG dan maksimal 2MB.';
+                alert(message);
+                return false;
+            }
         }
     });
 </script>

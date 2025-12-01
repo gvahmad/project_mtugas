@@ -44,6 +44,10 @@ class ProfileController extends Controller
         $user->email = $request->email;
         $user->save();
 
+        // Refresh the authenticated user in the session so UI (navbar/sidebar) shows new photo immediately
+        // This avoids requiring the user to re-login to see their updated profile image.
+        Auth::login($user);
+
         return redirect()->back()->with('success', 'Profil berhasil diperbarui');
     }
 }

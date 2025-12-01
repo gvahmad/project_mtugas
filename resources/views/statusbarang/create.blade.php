@@ -13,8 +13,8 @@
     }
     
     .form-header {
-        background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-        color: white;
+        background: linear-gradient(135deg, #2f3437 0%, #6b7280 100%);
+        color: #f1f3f5;
         padding: 25px;
     }
     
@@ -30,8 +30,8 @@
     }
     
     .form-control:focus {
-        border-color: #2575fc;
-        box-shadow: 0 0 0 3px rgba(37, 117, 252, 0.1);
+        border-color: #6b7280;
+        box-shadow: 0 0 0 3px rgba(107,114,128,0.08);
     }
     
     .form-label {
@@ -41,7 +41,7 @@
     }
     
     .btn-save {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #3a3f44 0%, #6b7280 100%);
         color: white;
         border: none;
         padding: 12px 30px;
@@ -51,7 +51,7 @@
     
     .btn-save:hover {
         transform: translateY(-2px);
-        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        box-shadow: 0 8px 20px rgba(58,63,68,0.28);
         color: white;
     }
     
