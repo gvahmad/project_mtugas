@@ -189,7 +189,7 @@
             </div>
 
             <h2>Selamat Datang</h2>
-            <p class="subtitle">Sistem Inventaris Lab PTI</p>
+            <p class="subtitle">Selamat Datang Di Cyberlabs</p>
 
             @if($errors->any())
                 <div class="alert alert-danger">
@@ -211,7 +211,7 @@
             </form>
 
             <div class="login-footer">
-                © 2024 Lab PTI. All rights reserved.
+                © 2025 Cyberlabs. All rights reserved.
             </div>
         </div>
     </div>

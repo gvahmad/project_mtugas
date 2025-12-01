@@ -2,65 +2,52 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
-    /**
-     * Tampilkan halaman login
-     */
     public function index()
     {
         return view('auth.login');
     }
 
-    /**
-     * Proses login user
-     */
     public function login(Request $request)
     {
-        // Simpan email sementara ketika gagal login
+        // Simpan email sementara
         Session::flash('email', $request->email);
 
-        // Validasi input
+        // Validasi
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
-        ], [
-            'email.required' => 'Email wajib diisi.',
-            'email.email' => 'Format email tidak valid.',
-            'password.required' => 'Password wajib diisi.',
         ]);
 
-        // Data login
         $infologin = [
             'email' => $request->email,
             'password' => $request->password,
         ];
 
-        // Cek kredensial
         if (Auth::attempt($infologin)) {
-            return redirect('barang')->with('success', 'Berhasil Login');
+
+            // Regenerate session (WAJIB)
+            $request->session()->regenerate();
+
+            return redirect()->intended('/')
+                ->with('success', 'Berhasil Login');
         }
 
-        // Jika gagal login
-        return redirect('auth/login')
-            ->with('error', 'Email atau password yang kamu masukkan tidak valid.');
+        return redirect('/login')
+            ->with('error', 'Email atau password tidak valid.');
     }
 
-    /**
-     * Logout user
-     */
-    public function logout(Request $request) {
+    public function logout(Request $request)
+    {
         Auth::logout();
-
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
         return redirect('/login');
-}
+    }
 }

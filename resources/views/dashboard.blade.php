@@ -58,23 +58,23 @@
     
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-        <h1 class="h3 mb-0" style="color: #2f3437;">Dashboard Inventaris</h1>
+        <h1 class="h3 mb-0" style="color: #2f3437;">Data tugas</h1>
     </div>
 
     <!-- Content Row -->
     <div class="row">
 
-        <!-- Total Barang Card -->
+        <!-- Total Admin Card (replaces Total Barang) -->
         <div class="col-xl-3 col-md-6 mb-4">
             <div class="card dashboard-card card-total-barang shadow h-100">
                 <div class="card-body">
                     <div class="stat-label">
-                        Total Barang
+                        Total Admin
                     </div>
                     <div class="stat-number mt-2">
-                        {{ $totalBarang }}
+                        {{ $totalAdmin }}
                     </div>
-                    <div style="font-size: 0.95rem; opacity: 0.85;">Unit</div>
+                    <div style="font-size: 0.95rem; opacity: 0.85;">Orang</div>
                 </div>
             </div>
         </div>
@@ -94,17 +94,17 @@
             </div>
         </div>
 
-        <!-- Barang Rusak Card -->
+        <!-- Tugas Selesai Card (replaces Barang Rusak) -->
         <div class="col-xl-3 col-md-6 mb-4">
             <div class="card dashboard-card card-barang-rusak shadow h-100">
                 <div class="card-body">
                     <div class="stat-label">
-                        Barang Rusak
+                        Tugas Selesai
                     </div>
                     <div class="stat-number mt-2">
-                        {{ $barangRusak }}
+                        {{ $tugasSelesai }}
                     </div>
-                    <div style="font-size: 0.95rem; opacity: 0.85;">Unit</div>
+                    <div style="font-size: 0.95rem; opacity: 0.85;">Item</div>
                 </div>
             </div>
         </div>
@@ -113,12 +113,12 @@
         <div class="col-xl-3 col-md-6 mb-4">
             <div class="card dashboard-card card-persentase shadow h-100">
                 <div class="card-body">
-                    <div class="stat-label">
-                        Persentase Rusak
+                        <div class="stat-label">
+                        Persentase Selesai
                     </div>
                     <div class="stat-number mt-2">
-                        @if($totalBarang > 0)
-                            {{ round(($barangRusak / $totalBarang) * 100, 1) }}%
+                        @if($totalTugas > 0)
+                            {{ round(($tugasSelesai / $totalTugas) * 100, 1) }}%
                         @else
                             0%
                         @endif

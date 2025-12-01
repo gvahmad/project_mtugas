@@ -1,59 +1,46 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BarangController;
-use App\Http\Controllers\StatusBarangController;
-use App\Http\Controllers\TransaksiController;
-use App\Http\Controllers\PetugasController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PetugasController;
+use App\Http\Controllers\TugasController;
 
-// Halaman login hanya untuk tamu
-Route::get('/login', [LoginController::class, 'index'])
-    ->name('login')
-    ->middleware('initamu');
+/*
+|--------------------------------------------------------------------------
+| ROUTE LOGIN (HANYA UNTUK TAMU)
+|--------------------------------------------------------------------------
+*/
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [LoginController::class, 'index'])->name('login');
+    Route::post('/login', [LoginController::class, 'login'])->name('login.post');
+});
 
-Route::post('/login', [LoginController::class, 'login'])
-    ->name('login.post')
-    ->middleware('initamu');
-
-// Logout user
+/*
+|--------------------------------------------------------------------------
+| LOGOUT
+|--------------------------------------------------------------------------
+*/
 Route::post('/logout', [LoginController::class, 'logout'])
     ->name('logout')
-    ->middleware('inilogin');
+    ->middleware('auth');
 
-// Group route untuk user yang sudah login
-Route::middleware(['inilogin'])->group(function () {
+/*
+|--------------------------------------------------------------------------
+| ROUTE YANG HARUS LOGIN
+|--------------------------------------------------------------------------
+*/
+Route::middleware('auth')->group(function () {
 
-    // Dashboard
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
-    // Profile
-    Route::get('profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::put('profile/update', [ProfileController::class, 'update'])->name('profile.update');
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 
-    // CRUD barang
-    Route::resource('barang', BarangController::class)->middleware('inilogin');
+    Route::resource('admin', AdminController::class);
+    Route::resource('petugas', PetugasController::class);
+    Route::resource('tugas', TugasController::class);
 
-    // CRUD status barang
-    Route::resource('statusbarang', StatusBarangController::class)->middleware('inilogin');
-
-    // CRUD transaksi
-    Route::resource('transaksi', TransaksiController::class)->middleware('inilogin');
-
-    // CRUD petugas
-    Route::get('petugas/{petugas}/edit', [PetugasController::class, 'edit'])
-        ->name('petugas.edit')
-        ->middleware('inilogin');
-
-    Route::put('petugas/{petugas}', [PetugasController::class, 'update'])
-        ->name('petugas.update')
-        ->middleware('inilogin');
-
-    Route::delete('petugas/{petugas}', [PetugasController::class, 'destroy'])
-        ->name('petugas.destroy')
-        ->middleware('inilogin');
-
-    Route::resource('petugas', PetugasController::class)->middleware('inilogin');
 });

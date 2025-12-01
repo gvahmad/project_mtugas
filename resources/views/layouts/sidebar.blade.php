@@ -19,33 +19,29 @@
                 </a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('barang.index') }}" style="padding: 12px 20px; transition: all 0.3s ease;">
-                    <i class="fas fa-fw fa-boxes" style="margin-right: 10px;"></i>
-                    <span style="font-weight: 500;">Daftar Barang</span>
-                </a>
-            </li>
+            <!-- Barang / StatusBarang / Transaksi links removed per request -->
 
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('statusbarang.index') }}" style="padding: 12px 20px; transition: all 0.3s ease;">
-                    <i class="fas fa-fw fa-clipboard-list" style="margin-right: 10px;"></i>
-                    <span style="font-weight: 500;">Status Barang</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('transaksi.index') }}" style="padding: 12px 20px; transition: all 0.3s ease;">
-                    <i class="fas fa-fw fa-exchange-alt" style="margin-right: 10px;"></i>
-                    <span style="font-weight: 500;">Transaksi</span>
+                <a class="nav-link" href="{{ route('admin.index') }}" style="padding: 12px 20px; transition: all 0.3s ease;">
+                    <i class="fas fa-fw fa-user-shield" style="margin-right: 10px;"></i>
+                    <span style="font-weight: 500;">Admin</span>
                 </a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="{{ route('petugas.index') }}" style="padding: 12px 20px; transition: all 0.3s ease;">
                     <i class="fas fa-fw fa-users" style="margin-right: 10px;"></i>
-                    <span style="font-weight: 500;">Petugas</span>
+                    <span style="font-weight: 500;">Karyawan</span>
                 </a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('tugas.index') }}" style="padding: 12px 20px; transition: all 0.3s ease;">
+                    <i class="fas fa-fw fa-tasks" style="margin-right: 10px;"></i>
+                    <span style="font-weight: 500;">Tugas</span>
+                </a>
+
+            
 
             <!-- Divider -->
             <hr class="sidebar-divider mt-5" style="border-top: 1px solid rgba(255,255,255,0.2);">
