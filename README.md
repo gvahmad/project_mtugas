@@ -1,66 +1,335 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Project MTugas - Sistem Manajemen Tugas
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Aplikasi web untuk manajemen tugas berbasis Laravel. Sistem ini dirancang untuk memudahkan pengguna dalam membuat, mengelola, dan melacak progress tugas-tugas mereka.
 
-## About Laravel
+## 📋 Daftar Isi
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- [Tentang Aplikasi](#tentang-aplikasi)
+- [Fitur Utama](#fitur-utama)
+- [Persyaratan Sistem](#persyaratan-sistem)
+- [Instalasi](#instalasi)
+- [Konfigurasi](#konfigurasi)
+- [Cara Menjalankan](#cara-menjalankan)
+- [Role & Tanggung Jawab Admin](#role--tanggung-jawab-admin)
+- [Struktur Database](#struktur-database)
+- [Penggunaan Aplikasi](#penggunaan-aplikasi)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🎯 Tentang Aplikasi
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+**Project MTugas** adalah aplikasi manajemen tugas yang memungkinkan:
+- Pengguna untuk membuat dan mengelola tugas pribadi atau tim
+- Admin untuk mengelola user, tugas, dan laporan sistem
+- Tracking progress tugas secara real-time
+- Kolaborasi antar user dalam menyelesaikan tugas
 
-## Learning Laravel
+## ✨ Fitur Utama
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- ✅ Autentikasi User (Login/Register)
+- ✅ CRUD Tugas (Create, Read, Update, Delete)
+- ✅ Pengelolaan Status Tugas (Pending, In Progress, Completed)
+- ✅ Dashboard Analytics
+- ✅ Sistem Role & Permission (Admin, User)
+- ✅ Laporan & Export Data
+- ✅ Real-time Notifications
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## 💻 Persyaratan Sistem
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Software Requirements
+- **PHP** >= 8.1
+- **Composer** (PHP Package Manager)
+- **Node.js** >= 16.x & npm (untuk front-end assets)
+- **MySQL/MariaDB** >= 5.7
+- **Git**
+- **Visual Studio Code** (opsional, untuk development)
 
-## Laravel Sponsors
+### Persyaratan Lainnya
+- RAM minimal 2GB
+- Storage minimal 500MB
+- Koneksi internet (untuk mengunduh dependencies)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 📥 Instalasi
 
-### Premium Partners
+### 1. Clone Repository
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+```bash
+git clone https://github.com/gvahmad/project_mtugas.git
+cd project_mtugas
+```
 
-## Contributing
+Atau jika belum ada repository online, buat folder project:
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+mkdir project_mtugas
+cd project_mtugas
+```
 
-## Code of Conduct
+### 2. Install PHP Dependencies
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Pastikan Composer sudah terinstall, kemudian jalankan:
 
-## Security Vulnerabilities
+```bash
+composer install
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 3. Install Node Dependencies
 
-## License
+```bash
+npm install
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 4. Copy File Environment
+
+```bash
+copy .env.example .env
+```
+
+Atau di Linux/Mac:
+
+```bash
+cp .env.example .env
+```
+
+### 5. Generate Application Key
+
+```bash
+php artisan key:generate
+```
+
+### 6. Konfigurasi Database
+
+Edit file `.env`:
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=project_mtugas
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+Buat database baru:
+
+```bash
+php artisan migrate:fresh --seed
+```
+
+### 7. Build Assets
+
+```bash
+npm run build
+```
+
+Untuk development dengan live reload:
+
+```bash
+npm run dev
+```
+
+## ⚙️ Konfigurasi
+
+### File `.env` Penting
+
+```env
+APP_NAME=ProjectMTugas
+APP_ENV=local
+APP_KEY=base64:xxxxxxxxxxxxx
+APP_DEBUG=true
+APP_URL=http://localhost:8000
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=project_mtugas
+DB_USERNAME=root
+DB_PASSWORD=
+
+MAIL_MAILER=smtp
+MAIL_HOST=smtp.mailtrap.io
+MAIL_PORT=2525
+MAIL_USERNAME=your_username
+MAIL_PASSWORD=your_password
+MAIL_FROM_ADDRESS=noreply@example.com
+
+SESSION_DRIVER=cookie
+CACHE_DRIVER=file
+QUEUE_CONNECTION=sync
+```
+
+## 🚀 Cara Menjalankan
+
+### Terminal 1 - Laravel Development Server
+
+```bash
+php artisan serve
+```
+
+Server akan berjalan di: `http://localhost:8000`
+
+### Terminal 2 - Frontend Development (Vite/Webpack)
+
+```bash
+npm run dev
+```
+
+### Akses Aplikasi
+
+Buka browser dan kunjungi:
+- **User Interface**: [http://localhost:8000](http://localhost:8000)
+- **Admin Panel**: [http://localhost:8000/admin](http://localhost:8000/admin)
+
+### Akun Default
+
+```
+Email: admin@example.com
+Password: password
+
+Email: user@example.com
+Password: password
+```
+
+## 👨‍💼 Role & Tanggung Jawab Admin
+
+### Wewenang Admin
+
+1. **Manajemen User**
+   - Melihat daftar semua user
+   - Membuat user baru
+   - Edit data user
+   - Hapus user
+   - Reset password user
+
+2. **Manajemen Tugas**
+   - Melihat semua tugas dari semua user
+   - Membuat tugas untuk user lain
+   - Edit tugas
+   - Hapus tugas
+   - Assign tugas ke user
+
+3. **Laporan & Analytics**
+   - Melihat statistik penggunaan aplikasi
+   - Export data tugas
+   - Laporan progress per user
+   - Dashboard overview
+
+4. **Sistem**
+   - Manajemen backup database
+   - Log aktivitas sistem
+   - Setting aplikasi
+   - Manajemen role & permission
+
+### Akses Admin Panel
+
+- URL: `http://localhost:8000/admin`
+- Hanya user dengan role "Admin" yang dapat mengakses
+
+## 📊 Struktur Database (ERD)
+
+```
+┌─────────────────┐
+│     users       │
+├─────────────────┤
+│ id (PK)         │
+│ name            │
+│ email           │
+│ password        │
+│ role (enum)     │
+│ created_at      │
+│ updated_at      │
+└────────┬────────┘
+         │ 1:n
+         │
+         ▼
+┌─────────────────┐
+│     tasks       │
+├─────────────────┤
+│ id (PK)         │
+│ user_id (FK)    │
+│ title           │
+│ description     │
+│ status (enum)   │
+│ priority        │
+│ due_date        │
+│ created_at      │
+│ updated_at      │
+└─────────────────┘
+
+Status enum: pending, in_progress, completed
+Priority enum: low, medium, high
+Role enum: admin, user
+```
+
+### Tabel Utama
+
+**users**
+- id: Integer (Primary Key)
+- name: String
+- email: String (Unique)
+- password: String (Hashed)
+- role: Enum (admin, user)
+- created_at, updated_at: Timestamp
+
+**tasks**
+- id: Integer (Primary Key)
+- user_id: Integer (Foreign Key)
+- title: String
+- description: Text
+- status: Enum (pending, in_progress, completed)
+- priority: Enum (low, medium, high)
+- due_date: Date
+- created_at, updated_at: Timestamp
+
+## 📖 Penggunaan Aplikasi
+
+### Sebagai User Biasa
+
+1. **Login** ke aplikasi
+2. **Dashboard** - Lihat overview tugas Anda
+3. **Buat Tugas Baru** - Klik tombol "New Task"
+4. **Edit Tugas** - Klik tugas → Edit
+5. **Ubah Status** - Drag tugas atau klik status
+6. **Hapus Tugas** - Klik delete pada tugas
+
+### Sebagai Admin
+
+1. **Login** dengan akun admin
+2. **Dashboard Admin** - Lihat statistik lengkap
+3. **Kelola User** - Menu Users
+4. **Kelola Tugas** - Menu Tasks
+5. **Lihat Laporan** - Menu Reports
+6. **Setting** - Konfigurasi aplikasi
+
+## 🛠️ Troubleshooting
+
+### Error: Class Not Found
+```bash
+composer dump-autoload
+```
+
+### Database Migration Error
+```bash
+php artisan migrate:fresh
+```
+
+### Assets Not Loading
+```bash
+npm run build
+php artisan storage:link
+```
+
+### Port 8000 Sudah Terpakai
+```bash
+php artisan serve --port=8001
+```
+
+## 📝 License
+
+Project ini open source dan dilisensikan di bawah MIT License.
+
+## 👥 Support
+
+Untuk bantuan, silakan buat issue di repository atau hubungi developer.
+
+---
+
+**Last Updated**: December 2, 2025
