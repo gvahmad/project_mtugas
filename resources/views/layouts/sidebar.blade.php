@@ -5,7 +5,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-cubes"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3" style="font-weight: 700; letter-spacing: 0.5px;">GUDANG LABS</div>
+                <div class="sidebar-brand-text mx-3" style="font-weight: 700; letter-spacing: 0.5px;">MANAJEMEN TUGAS</div>
             </a>
 
             <!-- Divider -->
