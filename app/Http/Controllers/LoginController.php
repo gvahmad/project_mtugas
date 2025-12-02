@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
+use App\Models\Petugas;
 
 class LoginController extends Controller
 {
@@ -34,8 +35,16 @@ class LoginController extends Controller
             // Regenerate session (WAJIB)
             $request->session()->regenerate();
 
-            return redirect()->intended('/')
-                ->with('success', 'Berhasil Login');
+            // Jika user merupakan petugas/karyawan (email terdaftar di tabel petugass), arahkan ke halaman karyawan
+            $user = Auth::user();
+            if ($user && $user->email) {
+                $petugas = Petugas::where('email', $user->email)->first();
+                if ($petugas) {
+                    return redirect()->route('karyawan.index')->with('success', 'Berhasil Login sebagai Karyawan');
+                }
+            }
+
+            return redirect()->intended('/')->with('success', 'Berhasil Login');
         }
 
         return redirect('/login')
